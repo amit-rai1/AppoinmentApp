@@ -1,28 +1,22 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./Pages/Home";
+import Legal from "./Pages/Legal";
+import NotFound from "./Pages/NotFound";
+import Appointment from "./Pages/Appointment";
 
-import { Routes, Route, Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import { Login } from "./pages/Login";
-import {Doctordashboard} from './Dashboard/Doctordashboard'
-import {Patientdashboard} from './Dashboard/Patientdashboard'
-import {Patient} from './component/Patient'
-import {Doctor} from './component/Doctor'
-import {Edit} from '../src/component/Edit'
 function App() {
   return (
     <div className="App">
-    <ToastContainer />
-<Routes>
- <Route path="/" element={<Login/>}/>
- <Route path="/login" element={<Login/>}/>
- 
- <Route path="/patientdashboard" element={<Patientdashboard/>}/>
- <Route path="/doctordashboard" element={<Doctordashboard/>}/>
- <Route path="/Patient" element={<Patient/>}/>
- <Route path="Doctor" element={<Doctor/>}/>
- <Route path="edit/:id" element={<Edit/>}/>
-
-</Routes>
- 
+      <Router basename="/Health-Plus">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/legal" element={<Legal />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
